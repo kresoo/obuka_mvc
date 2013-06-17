@@ -1,0 +1,74 @@
+body{
+    font-family: Segoe UI;
+    color:#ABABAB;
+    font-weight: bold;
+    background: #F5F5F5;
+}
+
+#search, #search th, #search td{  border: 1px solid white; }
+
+#search{  border-collapse: collapse; }
+
+#search th,td{
+    padding:5px;
+    text-align: center;
+}
+
+#search{ border-collapse: collapse; }
+
+#search th { background: #ABABAB;color:white; }
+#search tr:nth-child(odd) {background: #EBF2F7;}
+#search tr:nth-child(even) {background: #c2e0f4;}
+
+hr{
+    background-color: #2CB7F2;
+    height: 1px;
+    border:none;
+}   
+
+ul li a{
+    color:#ABABAB;
+}
+
+input{
+    outline:none;
+    border:1px solid #2CB7F2;
+    padding:5px;
+}
+
+.display a{
+    text-decoration: none;
+    color:white;
+    background: #2CB7F2;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:3px;
+}
+
+.display td{
+    text-align: center;
+}
+
+#welcome{
+    border-bottom: 3px solid #2CB7F2;
+    height:40px;
+}
+
+#navigation{
+    float: left;
+    width:200px;
+    border-right:3px solid #2CB7F2;
+    margin-right: 30px;
+    height:400px;
+    margin-top: 50px;
+}
+
+#main{
+    float: left;
+    width:800px;
+    margin-top: 50px;
+}
+
+#search_criteria{
+    border: 1px solid #2CB7F2;
+}
