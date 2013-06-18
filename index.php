@@ -17,6 +17,19 @@ spl_autoload_register(function ($className) {
                 . $className . '.php';
     }
     
+    if ($className == 'baseModel') {
+        include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
+                . 'lib' . DIRECTORY_SEPARATOR
+                . $className . '.php';
+    }
+    if ($className == 'Session') {
+        include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
+                . 'lib' . DIRECTORY_SEPARATOR
+                . $className . '.php';
+    }
+    
+    
+    
     if (is_readable($fullPath)) {
         include $fullPath;
     }
@@ -24,22 +37,23 @@ spl_autoload_register(function ($className) {
 
 $url = $_GET['url'];
 $urlParts = explode('/', $url);
-if (count($urlParts) !== 2) {
-    header('Location: /lib/404.php');
-    exit;
-}
+//if (count($urlParts) !== 2) {
+//    header('Location: /lib/404.php');
+//    exit;
+//}
 
 $className = 'Controller_' . ucfirst($urlParts[0]);
 $methodName = $urlParts[1];
 
-if (!class_exists($className)) {
-    header('Location: /lib/404.php');
-    exit;
-}
+//if (!class_exists($className)) {
+//    header('Location: /lib/404.php');
+//    exit;
+//}
+
 $class = new $className();
 
-if (!method_exists($class, $methodName)) {
-    header('Location: /lib/404.php');
-    exit;
-}
+//if (!method_exists($class, $methodName)) {
+//    header('Location: /lib/404.php');
+//    exit;
+//}
 $class->$methodName();
