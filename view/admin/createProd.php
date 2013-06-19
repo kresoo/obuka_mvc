@@ -1,5 +1,5 @@
 <div id="welcome">
-    <h3>Hello <?php echo $admin; ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
+    <h3>Hello <?php echo $admin; ?>,&nbsp;<a href="logout" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
 </div>
 <div id="navigation">
     Options:
@@ -39,5 +39,15 @@
             </select> <br /><br />
             <input type="submit" name="create_product" value="Save" />
         </form>
+                <div>
+            <?php
+            if(!empty($_SESSION['errors'])){
+                foreach ($_SESSION['errors'] as $error){
+                    echo $error ."<br />";
+                }
+                unset($_SESSION['errors']);
+            }
+            ?>
+        </div>
     </div>
 </div>

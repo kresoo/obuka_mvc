@@ -1,5 +1,5 @@
 <div id="welcome">
-    <h3>Hello <?php echo $admin;  ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
+    <h3>Hello <?php echo $admin;  ?>,&nbsp;<a href="logout" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
 </div>
 <div id="navigation">
     Options:
@@ -15,7 +15,7 @@
 <div>
     <div id="main">
         <table class="display">
-            <?php foreach ($params as $category) {
+            <?php foreach ($allCategories as $category) {
                 ?>
                 <tr>
                     <td> <?php echo $category->name; ?> </td> 

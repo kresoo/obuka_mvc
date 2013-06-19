@@ -23,18 +23,25 @@ class Model_Order extends baseModel {
     public function search($searchData) {
         if ($searchData['search_by'] == "total_price") {
             if (empty($searchData['price_from']) || empty($searchData['price_to'])) {
+                $_SESSION['errors']['order_not_found'] = "Enter search sting.";
                 return false;
             }
             if (!is_numeric($searchData['price_from']) || !is_numeric($searchData['price_to'])) {
-                return false;
+                $_SESSION['errors']['price_number'] = "Product price must be a number.";
             }
             if ($searchData['price_from'] < 0 || $searchData['price_to'] < 0) {
+                $_SESSION['errors']['price_minus'] = "Product price must be positive number.";
+            }
+            
+            if(!empty($_SESSION['errors'])){
                 return false;
             }
+            
             $sql = "SELECT * FROM orders WHERE " . $searchData['search_by'] . " BETWEEN " . $searchData['price_from'] . " AND " . $searchData['price_to'];
             $result = $this->findBySql($sql);
             //$result = serialize($resultTemp);
             if (!$result) {
+                $_SESSION['errors']['order_not_found'] = "No orders found";
                 return false;
             } elseif ($result) {
                 foreach ($result as $order){
@@ -46,6 +53,7 @@ class Model_Order extends baseModel {
         
         } elseif ($searchData['search_by'] == "customer_name") {
             if (empty($searchData['search_field'])) {
+               $_SESSION['errors']['order_not_found'] = "Enter search sting.";
                return false;
             }
             $allOrders = $this->findAll();
@@ -61,12 +69,14 @@ class Model_Order extends baseModel {
             }
 
             if (empty($orders)) {
+                $_SESSION['errors']['order_not_found'] = "No orders found";
                return false;
             } else {
                 return $orders;
             }
         } elseif ($searchData['search_by'] == "customer_email") {
             if (empty($searchData['search_field'])) {
+                $_SESSION['errors']['order_not_found'] = "Enter search sting.";
                 return false;
             }
             $allOrders = $this->findAll();
@@ -82,12 +92,14 @@ class Model_Order extends baseModel {
             }
 
             if (empty($orders)) {
+                $_SESSION['errors']['order_not_found'] = "No orders found";
                 return false;
             } else {
                return $orders;
             }
         } else {
             if (empty($searchData['search_field'])) {
+                $_SESSION['errors']['order_not_found'] = "Enter search sting.";
                 return false;
             }
 
@@ -95,6 +107,7 @@ class Model_Order extends baseModel {
 
             $result = $this->findBySql($sql);
             if (!$result) {
+                 $_SESSION['errors']['order_not_found'] = "No orders found";
                 return false;
             } elseif ($result) {
                 foreach ($result as $order){

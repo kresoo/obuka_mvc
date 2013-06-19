@@ -25,36 +25,50 @@ class Model_Product extends baseModel {
     public function verifyProd($attributes) {
         foreach ($attributes as $key => $value) {
             if (empty($value)) {
-                return false;
+                $_SESSION['errors']['name'] = "You must provide all fields";
             }
         }
         if (!is_numeric($attributes['price'])) {
-            return false;
+            $_SESSION['errors']['price_number'] = "Product price must be a number";
         }
-        if ($_POST['price'] < 0) {
-            return false;
+        if ($attributes['price'] < 0) {
+            $_SESSION['errors']['price_minus'] = "Product price must be a number";
         }
 
         if (!is_numeric($attributes['qty'])) {
-            return false;
+            $_SESSION['errors']['qty_number'] = "Product quantity must be a number";
         }
 
-        if ($_POST['qty'] < 0) {
-            return false;
+        if ($attributes['qty'] < 0) {
+            $_SESSION['errors']['qty_minus'] = "Product quantity must be a number";
         }
-        if(!empty($attributes['id'])){
+
+        if (!is_numeric($attributes['barcode'])) {
+            $_SESSION['errors']['barcode_number'] = "Product barcode must be a number.";
+        }
+
+        if (empty($attributes['category_id'])) {
+            $_SESSION['errors']['category'] = "Choose at least one product category.";
+        }
+
+        if (!empty($attributes['id'])) {
             $sql = "SELECT barcode FROM product WHERE id != {$attributes['id']}";
         } else {
             $sql = "SELECT barcode FROM product";
         }
+
+
         $result = $this->query($sql);
         while ($barcode = $this->fetch($result)) {
             if ($barcode[0] == $attributes['barcode']) {
-                return false;
+                $_SESSION['errors']['barcode_exists'] = "Product with same barcode already exists";
             }
         }
-
-        return true;
+        if (empty($_SESSION['errors'])) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function attachAttributes($attributes) {
