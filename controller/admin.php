@@ -1,9 +1,9 @@
 <?php
 
-class Controller_Admin extends BaseController {
+class Controller_Admin extends Controller_BaseController {
 
-    public function __construct() {
-        parent::__construct();
+    public function __construct($urlParts) {
+        parent::__construct($urlParts);
     }
 
     public function index() {
@@ -56,10 +56,10 @@ class Controller_Admin extends BaseController {
                 if ($catVerify) {
                     $category->name = $catName;
                     $category->insert();
-                    header("Location: allCat");
+                    header("Location: /admin/allCat");
                     exit;
                 } else {
-                    header("Location: createCat");
+                    header("Location: /admin/createCat");
                     exit;
                 }
             }
@@ -74,9 +74,9 @@ class Controller_Admin extends BaseController {
             $userTemp = new Model_Admin();
             $admin = $userTemp->findById($this->admin_id);
             
-            if (!empty($_GET['cid'])) {
+            if (empty($_POST['category_change'])) {
                 $cat = new Model_Category();
-                $category = $cat->findById($_GET['cid']);
+                $category = $cat->findById($this->params['id']);
                 $this->_render(array("admin" => $admin,"category" => $category));
             } else {
                 if (!empty($_POST['category_change'])) {
@@ -88,10 +88,10 @@ class Controller_Admin extends BaseController {
                         $category->name = $catName;
                         $category->id = $catId;
                         $category->update();
-                        header("Location: allCat");
+                        header("Location: /admin/allCat");
                         exit;
                     } elseif(!$catVerify) {
-                        header("Location: changeCatName?cid={$catId}");
+                        header("Location: /admin/changeCatName/id/{$catId}");
                         exit;
                     }
                 }
@@ -106,9 +106,9 @@ class Controller_Admin extends BaseController {
             $userTemp = new Model_Admin();
             $admin = $userTemp->findById($this->admin_id);
             
-            if (!empty($_GET['pid'])) {
+            if (empty($_POST['product_change'])) {
                 $prod = new Model_Product();
-                $product = $prod->findById($_GET['pid']);
+                $product = $prod->findById($this->params['id']);
                 $this->_render(array("admin" => $admin,"product" => $product));
             } else {
                 if (!empty($_POST['product_change'])) {
@@ -117,11 +117,11 @@ class Controller_Admin extends BaseController {
                     if ($prodVerify) {
                         if ($product->attachAttributes($_POST)) {
                             $product->update();
-                            header("Location: allProd");
+                            header("Location: /admin/allProd");
                             exit;
                         }
                     } else {
-                        header("Location: changeProdProp?pid={$_POST['id']}");
+                        header("Location: /admin/changeProdProp/id/{$_POST['id']}");
                     }
                 }
             }
@@ -143,11 +143,11 @@ class Controller_Admin extends BaseController {
                 if($productVerify){
                     if($product->attachAttributes($_POST)){
                         $product->insert();
-                        header("Location: allProd");
+                        header("Location: /admin/allProd");
                         exit;
                     }
                 } else {
-                    header("Location: createProd");
+                    header("Location: /admin/createProd");
                 }
             }
        } else {

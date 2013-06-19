@@ -1,6 +1,6 @@
 <?php
 
-class Model_Order extends baseModel {
+class Model_Order extends Model_baseModel {
 
     public $id;
     public $total_price;

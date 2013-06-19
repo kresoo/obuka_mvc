@@ -10,24 +10,7 @@ spl_autoload_register(function ($className) {
     $fullPath = DOCUMENT_ROOT . DIRECTORY_SEPARATOR
             . str_replace('_', '/', strtolower($className)) . '.php';
     //echo $fullPath;
-    
-    if ($className == 'BaseController') {
-        include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
-                . 'lib' . DIRECTORY_SEPARATOR
-                . $className . '.php';
-    }
-    
-    if ($className == 'baseModel') {
-        include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
-                . 'lib' . DIRECTORY_SEPARATOR
-                . $className . '.php';
-    }
-    if ($className == 'Session') {
-        include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
-                . 'lib' . DIRECTORY_SEPARATOR
-                . $className . '.php';
-    }
-    
+   
     
     
     if (is_readable($fullPath)) {
@@ -50,7 +33,7 @@ $methodName = $urlParts[1];
 //    exit;
 //}
 
-$class = new $className();
+$class = new $className($urlParts);
 
 //if (!method_exists($class, $methodName)) {
 //    header('Location: /lib/404.php');

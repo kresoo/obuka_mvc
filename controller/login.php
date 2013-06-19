@@ -1,9 +1,9 @@
 <?php
 
-class Controller_Login extends BaseController
+class Controller_Login extends Controller_BaseController
 {
-    public function __construct() {
-        parent::__construct();
+    public function __construct($urlParts) {
+        parent::__construct($urlParts);
     }
     
     public function login(){

@@ -1,6 +1,6 @@
 <?php
 
-class Model_Admin extends baseModel {
+class Model_Admin extends Model_baseModel {
 
     public $id;
     public $firstname;

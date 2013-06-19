@@ -1,6 +1,6 @@
 <?php
 
-class Model_Product extends baseModel {
+class Model_Product extends Model_baseModel {
 
     public $id;
     public $name;

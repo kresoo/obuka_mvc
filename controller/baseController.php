@@ -1,15 +1,27 @@
 <?php
 
-class BaseController
+class Controller_BaseController
 {
         
     public $logged_in;
     public $admin_id;
+    public $params = array();
     
-    public function __construct()
+    public function __construct($urlParts)
     {
          session_start();
          $this->check_login();
+         $this->genParams($urlParts);
+    }
+    
+     public function genParams($params)
+    {
+        $this->params['controller'] = $params[0];
+        $this->params['action'] = $params[1];
+        
+        if (count($params) === 4) {
+            $this->params[$params[2]] = $params[3];
+        }
     }
 
     public function is_logged_in() {
@@ -40,7 +52,6 @@ class BaseController
     
     protected function _render($params = array())
     {
-        global $urlParts;
         
         if (!empty($params)) {
             extract($params);
@@ -50,13 +61,13 @@ class BaseController
         
         include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
                 . 'view' . DIRECTORY_SEPARATOR
-                . strtolower($urlParts[0]) . DIRECTORY_SEPARATOR
-                . strtolower($urlParts[1]) . '.php';
+                . strtolower($this->params['controller']) . DIRECTORY_SEPARATOR
+                . strtolower($this->params['action']) . '.php';
         
         $content = ob_get_clean();
         
         include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
-                . 'lib' . DIRECTORY_SEPARATOR
+                . 'view' . DIRECTORY_SEPARATOR
                 . 'baseView.php';
         
         ob_end_flush();
