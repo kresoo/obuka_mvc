@@ -28,7 +28,7 @@ class BaseController
         $this->logged_in = false;
     }
 
-    private function check_login() {
+    protected function check_login() {
         if (isset($_SESSION['admin_id'])) {
             $this->admin_id = $_SESSION['admin_id'];
             $this->logged_in = true;

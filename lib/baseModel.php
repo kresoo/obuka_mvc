@@ -76,7 +76,7 @@ class baseModel {
     }
 
     public function insert() {
-        $attributes = $this->db->attributes();
+        $attributes = $this->attributes();
         $sql = "INSERT INTO " . static::$table_name . " (";
         $sql .= join(",", array_keys($attributes));
         $sql .= ") VALUES ('";
@@ -98,7 +98,7 @@ class baseModel {
         $sql = "UPDATE " . static :: $table_name . " SET ";
         $sql .= join(",", $attribute_pairs);
         $sql .= " WHERE id=" . $this->id;
-        print_r($sql);
+        //print_r($sql);
         if ($this->db->query($sql)) {
             return true;
         } else {

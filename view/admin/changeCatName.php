@@ -1,5 +1,5 @@
 <div id="welcome">
-    <h3>Hello <?php  ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
+    <h3>Hello <?php echo $admin; ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
 </div>
 <div id="navigation">
     Options:
@@ -14,7 +14,7 @@
 </div>
 <div>
     <div id="main">
-        <form action="changeCat" method="POST">
+        <form action="changeCatName" method="POST">
             New name: <br /> <hr style=""/>
             <input type="text" name="category_name" value="<?php echo $category->name ?>"/>
             <input type="hidden" name="category_id" value="<?php echo $category->id ?>" />

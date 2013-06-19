@@ -1,5 +1,5 @@
 <div id="welcome">
-    <h3>Hello <?php  ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
+    <h3>Hello <?php echo $admin; ?>,&nbsp;<a href="admin/logout.php" style="color:#2CB7F2;text-decoration: none;">  Logout </a> </h3><br /><br />
 </div>
 <div id="navigation">
     Options:
@@ -14,7 +14,7 @@
 </div>
 <div>
     <div id="main">
-        <form action="process_changes.php" method="POST">
+        <form action="createProd" method="POST">
             Create new product: <br /> <hr />
             Name:<br />
             <input type="text" name="name"  /><br />

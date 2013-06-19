@@ -14,12 +14,9 @@ class Controller_Login extends BaseController
         $user = $admin->authenticate($username, $password);
 //        echo "<pre>";
 //        print_r($user);
-//        foreach ($user as $key => $value){
-//            echo $user->$key . "<br />";
-//        }
         
         if($user){
-            $this->loginUser($user->id);
+            $this->loginUser($user);
             unset($_SESSION['message']);
             header("Location: /admin/index");
             exit;

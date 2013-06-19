@@ -14,7 +14,7 @@
 </div>
 <div>
     <div id="main">
-            <form action="includes/process_changes.php" method="POST">
+            <form action="changeProdProp" method="POST">
                 New product properties: <br /> <hr />
                 Name:<br />
                 <input type="text" name="name" value="<?php echo $product->name ?>" /><br />

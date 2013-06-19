@@ -22,24 +22,52 @@ class Model_Product extends baseModel {
         return static::findBySql($sql);
     }
 
-    public function serializeProducts($products) {
-        $serializedProducts = array();
-        foreach ($products as $product) {
-            $sProduct = serialize($product);
-            $serializedProducts[] = $sProduct;
-        }
-        return $serializedProducts;
-    }
-
-    public function changeAttributeValue($set) {
-        foreach ($set as $id => $qty) {
-            if ($this->id = $id) {
-                $this->qty -= 1;
+    public function verifyProd($attributes) {
+        foreach ($attributes as $key => $value) {
+            if (empty($value)) {
+                return false;
             }
         }
+        if (!is_numeric($attributes['price'])) {
+            return false;
+        }
+        if ($_POST['price'] < 0) {
+            return false;
+        }
+
+        if (!is_numeric($attributes['qty'])) {
+            return false;
+        }
+
+        if ($_POST['qty'] < 0) {
+            return false;
+        }
+        if(!empty($attributes['id'])){
+            $sql = "SELECT barcode FROM product WHERE id != {$attributes['id']}";
+        } else {
+            $sql = "SELECT barcode FROM product";
+        }
+        $result = $this->query($sql);
+        while ($barcode = $this->fetch($result)) {
+            if ($barcode[0] == $attributes['barcode']) {
+                return false;
+            }
+        }
+
+        return true;
     }
- 
-    
+
+    public function attachAttributes($attributes) {
+        foreach ($attributes as $key => $value) {
+            if ($key == "product_change" || $key == "category_id" || $key == "create_product") {
+                continue;
+            }
+            $this->$key = $value;
+        }
+        $this->category_id = implode(",", $attributes['category_id']);
+        return true;
+    }
+
 }
 
 ?>
