@@ -164,6 +164,7 @@ class Controller_Admin extends BaseController {
             $allOrders = $order->findAll();
             foreach ($allOrders as $order) {
                 $order->items = unserialize($order->items);
+                $order->customer_info = unserialize($order->customer_info);
             }
 
             $this->_render(array("admin" => $admin,'allOrders' => $allOrders));
