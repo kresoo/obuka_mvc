@@ -1,16 +1,16 @@
 
         <form action="searchOrders" method="GET">
-            Search orders  <br /> <hr />
+            <h3> Search orders </h3>  <hr />
             <div id="search_string" style="height:50px;"> </div>
             <div id="search_input" style="height:50px;">
                 <input type="text" name="search_field"  /> <br /><br />
             </div>
             <div id="price_range" style="height:50px;">
-                <input class="price" type="text" name="price_from" size="5" />$ -
-                <input class="price" type="text" name="price_to" size="5" />$
+                <input class="input-small" class="price" type="text" name="price_from" size="5" />$ -
+                <input class="input-small" class="price" type="text" name="price_to" size="5" />$
             </div> <br />
-            Search by: <br /> <br />
-            <table id="search_criteria">
+            <h4>Search by: <h4 /> <br />
+            <table class="table" id="search_criteria">
                 <tr> 
                     <td> Order ID </td> 
                     <td> User ID </td> 
@@ -29,7 +29,7 @@
                 </tr>
             </table>
             <br />
-            <input type="submit" name="search" value="Search" /> <br />
+            <input style="margin-bottom: 20px;" class="btn btn-success" type="submit" name="search" value="Search" /> <br />
         </form>
         <div>
            <?php if(!empty($result)):?>
@@ -75,7 +75,7 @@
         </table>
         <?php endif; ?>
         </div>
-                <div>
+                <div style="color:#E84848">
             <?php
             if(!empty($_SESSION['errors'])){
                 foreach ($_SESSION['errors'] as $error){

@@ -1,6 +1,6 @@
 
-        <?php echo "All orders <br /> <hr />";?>
-        <table id="search">
+        <?php echo "<h3> All orders </h3> <hr />";?>
+        <table class="table table-bordered" id="search">
     <tr>
         <th> Order ID </th>
         <th> Ordered products </th>
@@ -48,4 +48,3 @@
         </tr>
     <?php endforeach; ?>
 </table>
-

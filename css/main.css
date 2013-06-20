@@ -2,29 +2,29 @@ body{
     font-family: Segoe UI;
     color:#ABABAB;
     font-weight: bold;
-    background: #F5F5F5;
-}
+    //background: #F5F5F5;
+}/*
 
 #search, #search th, #search td{  border: 1px solid white; }
 
 #search{  border-collapse: collapse; }
 
-#search th,td{
+*/#search th,td{
     padding:5px;
     text-align: center;
-}
+}/*
 
 #search{ border-collapse: collapse; }
+*/#search { font-family: Segoe UI; font-weight:bold; color:#ABABAB;}/*
+*/#search th { background: #ABABAB;color:white; }/*
+*/#search tr:nth-child(odd) {background: #EBF2F7;}
+#search tr:nth-child(even) {background: #c2e0f4;}/*
 
-#search th { background: #ABABAB;color:white; }
-#search tr:nth-child(odd) {background: #EBF2F7;}
-#search tr:nth-child(even) {background: #c2e0f4;}
-
-hr{
-    background-color: #2CB7F2;
-    height: 1px;
+*/hr{
+    background-color: #ABABAB;
+    height: 2px;
     border:none;
-}   
+}   /*
 
 ul li a{
     color:#ABABAB;
@@ -71,4 +71,4 @@ input{
 
 #search_criteria{
     border: 1px solid #2CB7F2;
-}
+}*/

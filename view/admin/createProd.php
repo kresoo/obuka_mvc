@@ -1,17 +1,17 @@
 
         <form action="createProd" method="POST">
-            Create new product: <br /> <hr />
-            Name:<br />
+           <h3>  Create new product: </h3> <hr />
+            <h4> Name:<h4> 
             <input type="text" name="name"  /><br />
-            Description:<br />
+           <h4>  Description:<h4> 
             <input type="text" name="description" /><br />
-            Price:<br />
+           <h4>  Price:<h4> 
             <input type="text" name="price" /><br />
-            Barcode:<br />
+            <h4> Barcode:<h4> 
             <input type="text" name="barcode" v/><br />
-            Quantity:<br />
+            <h4> Quantity:<h4> 
             <input type="text" name="qty" /><br />
-            Category: <br />
+            <h4> Category: <h4> 
             <select multiple name="category_id[]">
                 <?php
                 $category = new Model_Category();
@@ -22,9 +22,9 @@
                 <?php endforeach; ?>
 
             </select> <br /><br />
-            <input type="submit" name="create_product" value="Save" />
+            <input class="btn btn-success" type="submit" name="create_product" value="Save" />
         </form>
-                <div>
+                <div style="color:#E84848">
             <?php
             if(!empty($_SESSION['errors'])){
                 foreach ($_SESSION['errors'] as $error){

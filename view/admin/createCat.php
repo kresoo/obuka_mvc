@@ -1,11 +1,11 @@
 
         <form action="createCat" method="POST">
-            Create new category:  <br /> <hr />
-            Name: <br/>
+            <h3> Create new category: </h3> <hr />
+            <h4> Name: </h4> 
             <input type="text" name="name" />
-            <input type="submit" name="create_category" value="Save" />
+            <input class="btn btn-success" type="submit" name="create_category" value="Save" />
         </form>
-                <div>
+                <div style="color:#E84848">
             <?php
             if(!empty($_SESSION['errors'])){
                 foreach ($_SESSION['errors'] as $error){

@@ -6,7 +6,7 @@
             <input type="submit" name="category_change" value="Save" />
         </form>
 
-        <div>
+        <div style="color:#E84848">
             <?php
             if(!empty($_SESSION['errors'])){
                 foreach ($_SESSION['errors'] as $error){

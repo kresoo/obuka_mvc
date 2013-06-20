@@ -38,7 +38,7 @@
                 </select> <br /><br />
                 <input type="submit" name="product_change" value="Save" />
             </form>
-            <div>
+            <div style="color:#E84848">
                 <?php
                 if(!empty($_SESSION['errors'])){
                     foreach ($_SESSION['errors'] as $error){
