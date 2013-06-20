@@ -10,7 +10,7 @@ class Controller_Admin extends Controller_BaseController {
         if ($this->logged_in) {
             $userTemp = new Model_Admin();
             $admin = $userTemp->findById($this->admin_id);
-            $this->_render(array("admin" => $admin));
+            $this->_render(array("admin" => $admin, "admin_html" => "/view/admin_html/admin_html.html"));
         } else {
             header("Location: /login/index");
         }
@@ -23,7 +23,7 @@ class Controller_Admin extends Controller_BaseController {
             
             $category = new Model_Category;
             $allCategories = $category->findAll();
-            $this->_render(array("admin" => $admin, "allCategories" => $allCategories));
+            $this->_render(array("admin" => $admin, "allCategories" => $allCategories, "admin_html" => "/view/admin_html/admin_html.html"));
         } else {
             header("Location: /login/index");
         }
@@ -36,7 +36,7 @@ class Controller_Admin extends Controller_BaseController {
             
             $products = new Model_Product();
             $allProducts = $products->findAll();
-            $this->_render(array("admin" => $admin, "allProducts" => $allProducts));
+            $this->_render(array("admin" => $admin, "allProducts" => $allProducts, "admin_html" => "/view/admin_html/admin_html.html"));
         } else {
             header("Location: /login/index");
         }
@@ -48,7 +48,7 @@ class Controller_Admin extends Controller_BaseController {
             $admin = $userTemp->findById($this->admin_id);
             
             if (empty($_POST['create_category'])) {
-                $this->_render(array("admin" => $admin));
+                $this->_render(array("admin" => $admin, "admin_html" => "/view/admin_html/admin_html.html"));
             } else {
                 $catName = $_POST['name'];
                 $category = new Model_Category();
@@ -77,7 +77,7 @@ class Controller_Admin extends Controller_BaseController {
             if (empty($_POST['category_change'])) {
                 $cat = new Model_Category();
                 $category = $cat->findById($this->params['id']);
-                $this->_render(array("admin" => $admin,"category" => $category));
+                $this->_render(array("admin" => $admin,"category" => $category, "admin_html" => "/view/admin_html/admin_html.html"));
             } else {
                 if (!empty($_POST['category_change'])) {
                     $catName = $_POST['category_name'];
@@ -109,7 +109,7 @@ class Controller_Admin extends Controller_BaseController {
             if (empty($_POST['product_change'])) {
                 $prod = new Model_Product();
                 $product = $prod->findById($this->params['id']);
-                $this->_render(array("admin" => $admin,"product" => $product));
+                $this->_render(array("admin" => $admin,"product" => $product, "admin_html" => "/view/admin_html/admin_html.html"));
             } else {
                 if (!empty($_POST['product_change'])) {
                     $product = new Model_Product();
@@ -136,7 +136,7 @@ class Controller_Admin extends Controller_BaseController {
             $admin = $userTemp->findById($this->admin_id);
             
             if (empty($_POST['create_product'])) {
-                $this->_render(array("admin" => $admin));
+                $this->_render(array("admin" => $admin, "admin_html" => "/view/admin_html/admin_html.html"));
             } else {
                 $product = new Model_Product();
                 $productVerify = $product->verifyProd($_POST);
@@ -167,7 +167,7 @@ class Controller_Admin extends Controller_BaseController {
                 $order->customer_info = unserialize($order->customer_info);
             }
 
-            $this->_render(array("admin" => $admin,'allOrders' => $allOrders));
+            $this->_render(array("admin" => $admin,'allOrders' => $allOrders, "admin_html" => "/view/admin_html/admin_html.html"));
         } else {
             header("Location: /login/index");
         }
@@ -179,11 +179,11 @@ class Controller_Admin extends Controller_BaseController {
             $admin = $userTemp->findById($this->admin_id);
 
             if(empty($_GET['search'])){
-                $this->_render(array("admin" => $admin));
+                $this->_render(array("admin" => $admin, "admin_html" => "/view/admin_html/admin_html.html"));
             } else {
                 $order = new Model_Order();
                 $result = $order->search($_GET);
-                $this->_render(array ("admin" => $admin,"result" => $result));
+                $this->_render(array ("admin" => $admin,"result" => $result, "admin_html" => "/view/admin_html/admin_html.html"));
             }
         } else {
             header("Location: /login/index");

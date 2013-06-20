@@ -56,9 +56,9 @@ class Controller_BaseController
         if (!empty($params)) {
             extract($params);
         }
-        
+
         ob_start();
-        
+
         include DOCUMENT_ROOT . DIRECTORY_SEPARATOR
                 . 'view' . DIRECTORY_SEPARATOR
                 . strtolower($this->params['controller']) . DIRECTORY_SEPARATOR
