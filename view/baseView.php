@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <link type="text/css" href="/css/jquery.css" rel="stylesheet" />
         <link type="text/css" href="/css/bootstrap.css" rel="stylesheet" />
         <link type="text/css" href="/css/main.css" rel="stylesheet" />
     </head>
@@ -18,6 +17,7 @@
                 </div>
             </div>
         <script src="/js/jquery.js"></script>
+        <script src="/js/jquery.cookie.js"></script>
         <script src="/js/main.js"></script>
     </body>
 </html>

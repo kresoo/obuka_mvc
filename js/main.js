@@ -35,8 +35,19 @@ $(document).ready(function() {
         $(this).css('-moz-box-shadow','none').css('-webkit-box-shadow','none').css('box-shadow','none')
     });
     
+    if($.cookie("activePage")){
+        page = $.cookie("activePage");
+        $.cookie("activePage", null);
+        $('li[page=' + page + ']').addClass("active");
+    }
+
     $('.nav li').click(function(){
-        $(this).addClass("active");
+        var thisLi = $(this);
+        var otherLi = $('.nav li').not(thisLi);
+        thisLi.addClass("active");
+        otherLi.removeClass("active");
+        var page = thisLi.attr('page');
+        $.cookie("activePage",page);
     });
 });
 

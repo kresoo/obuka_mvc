@@ -11,7 +11,7 @@
             <input class="btn btn-primary btn-large" type="submit" name="login" value="Log in" />
         </form>
     </div>
-    <div style="text-align: center;margin-top: 10px;">
+    <div style="text-align: center;margin-top: 10px;color:#E84848">
         <?php 
             if(!empty($_SESSION['message'])){
                 echo  $_SESSION['message']; 
