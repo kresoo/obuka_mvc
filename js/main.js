@@ -3,20 +3,17 @@ $(document).ready(function() {
     var search_input = $('#search_input');
     var priceRadio = $('#price');
     var otherRadio = $('input[type=radio]').not(priceRadio);
+    
     priceRadio.click(function() {
         $('#price_range').show();
         search_input.hide();
     });
+    
     otherRadio.click(function() {
         $('#price_range').hide();
         search_input.show();
     });
-    
-//    $('li a').mouseover(function(){
-//        $(this).css('color','#2CB7F2').css('font-size','18px');
-//    }).mouseout(function(){
-//        $(this).css('color','#ABABAB').css('font-size','16px');
-//    });
+
     
     $('input').focus(function(){
         $(this).css('border','2px solid #2CB7F2');
@@ -35,12 +32,14 @@ $(document).ready(function() {
         $(this).css('-moz-box-shadow','none').css('-webkit-box-shadow','none').css('box-shadow','none')
     });
     
+    //initial nav item select
     if($.cookie("activePage")){
         page = $.cookie("activePage");
         $.cookie("activePage", null);
         $('li[page=' + page + ']').addClass("active");
     }
 
+    //add class to clicked nav item
     $('.nav li').click(function(){
         var thisLi = $(this);
         var otherLi = $('.nav li').not(thisLi);

@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <form action="createProd" method="POST">
            <h3>  Create new product: </h3> <hr />
             <h4> Name:<h4> 
@@ -34,3 +34,4 @@
             }
             ?>
         </div>
+</div>

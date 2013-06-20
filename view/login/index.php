@@ -1,5 +1,6 @@
     <div class="hero-unit" style="color:#ABABAB">
-        <h1 > Web Store <span style="color:#2CB7F2"> Admin </span> area  </h1>
+        <img class="pull-left" src="/images/admin.svg" style="width:100px;height: 100px;margin-right: 60px;"/>
+        <h1 > Web Store <span style="color:#2CB7F2"> </small> Admin </span>  area  </h1>
     </div> 
     <div style="margin:0 auto;width:200px;color:#ABABAB;">
         <h2> <span style="color:#2CB7F2;"> Log in: </span> </h3> <hr />

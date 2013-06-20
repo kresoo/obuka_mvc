@@ -6,16 +6,17 @@
         <link type="text/css" href="/css/main.css" rel="stylesheet" />
     </head>
     <body>
-            <div class ="container">
-            <?php 
-                if(isset($admin_html)){
-                    require_once $admin_html;
-                } 
+        <div class ="container">
+            <?php
+            if (isset($admin_html)) {
+                require_once $admin_html;
+            }
             ?>
-               
-                    <?php echo $content ?>
-                </div>
-            </div>
+            
+                <?php echo $content ?>
+                          
+        </div>
+
         <script src="/js/jquery.js"></script>
         <script src="/js/jquery.cookie.js"></script>
         <script src="/js/main.js"></script>

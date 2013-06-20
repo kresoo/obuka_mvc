@@ -14,8 +14,9 @@ class Model_Category extends Model_baseModel {
             $_SESSION['errors']['name'] = "Category name cant be empty.";
             return false;
         }
-        $sql = "SELECT name FROM " . static::$table_name . " WHERE name = '" . $name . "'";
+        $sql = "SELECT name FROM " . static::$table_name . " WHERE name = " . $name;
         $result = $this->query($sql);
+
         if($result){
              $_SESSION['errors']['exists'] = "Category with same name already exists.";
             return false;

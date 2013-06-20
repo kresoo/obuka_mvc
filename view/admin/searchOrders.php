@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <form action="searchOrders" method="GET">
             <h3> Search orders </h3>  <hr />
             <div id="search_string" style="height:50px;"> </div>
@@ -85,4 +85,4 @@
             }
             ?>
         </div>
- 
+ </div>

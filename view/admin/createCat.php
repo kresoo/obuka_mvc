@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <form action="createCat" method="POST">
             <h3> Create new category: </h3> <hr />
             <h4> Name: </h4> 
@@ -15,4 +15,4 @@
             }
             ?>
         </div>
- 
+ </div>

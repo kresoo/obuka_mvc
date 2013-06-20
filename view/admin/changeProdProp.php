@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
             <form action="changeProdProp" method="POST">
                 New product properties: <br /> <hr />
                 Name:<br />
@@ -48,3 +48,4 @@
                 }
                 ?>
         </div>
+</div>

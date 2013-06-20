@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <?php echo "<h3> All orders </h3> <hr />";?>
         <table class="table table-bordered" id="search">
     <tr>
@@ -48,3 +48,4 @@
         </tr>
     <?php endforeach; ?>
 </table>
+</div>

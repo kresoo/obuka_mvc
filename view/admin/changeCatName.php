@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <form action="changeCatName" method="POST">
             New name: <br /> <hr style=""/>
             <input type="text" name="category_name" value="<?php echo $category->name ?>"/>
@@ -16,3 +16,4 @@
             }
             ?>
         </div>
+</div>

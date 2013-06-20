@@ -1,4 +1,4 @@
-
+<div class="row" style="background:#eeeeee;padding:20px;">
         <table class="table table-striped">
             <?php foreach ($allCategories as $category) {
                 ?>
@@ -9,3 +9,4 @@
             <?php } ?> 
         </table>
         
+</div>
